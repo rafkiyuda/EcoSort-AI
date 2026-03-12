@@ -7,10 +7,22 @@ import {
     ChevronRight,
     Flame
 } from 'lucide-react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const ChallengeDetail = () => {
     const navigate = useNavigate();
+    const [isJoined, setIsJoined] = useState(false);
+    const [showFeedback, setShowFeedback] = useState(false);
+
+    const handleJoin = () => {
+        if (!isJoined) {
+            setIsJoined(true);
+            setShowFeedback(true);
+            setTimeout(() => setShowFeedback(false), 3000);
+        }
+    };
 
     return (
         <div className="pb-32 min-h-screen bg-slate-50">
@@ -105,11 +117,46 @@ const ChallengeDetail = () => {
             {/* Floating Action Button */}
             <div className="fixed bottom-6 left-6 right-6 z-50">
                 <button
-                    className="w-full h-16 bg-emerald-600 text-white rounded-[24px] font-black shadow-2xl shadow-emerald-900/40 active:scale-[0.98] transition-all flex items-center justify-center gap-3 group"
+                    onClick={handleJoin}
+                    disabled={isJoined}
+                    className={`w-full h-16 rounded-[24px] font-black shadow-2xl transition-all flex items-center justify-center gap-3 group active:scale-[0.98] ${isJoined
+                            ? 'bg-slate-900 text-white shadow-slate-900/20'
+                            : 'bg-emerald-600 text-white shadow-emerald-900/40 hover:bg-emerald-700'
+                        }`}
                 >
-                    Ikuti Tantangan Sekarang <ChevronRight size={20} className="group-hover:translate-x-2 transition-transform" />
+                    {isJoined ? (
+                        <>
+                            <CheckCircle2 size={24} className="text-emerald-400" /> TERDAFTAR
+                        </>
+                    ) : (
+                        <>
+                            Ikuti Tantangan Sekarang <ChevronRight size={20} className="group-hover:translate-x-2 transition-transform" />
+                        </>
+                    )}
                 </button>
             </div>
+
+            {/* Success Feedback Overlay */}
+            <AnimatePresence>
+                {showFeedback && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        className="fixed inset-0 z-[60] flex items-center justify-center pointer-events-none px-10"
+                    >
+                        <div className="bg-white p-8 rounded-[40px] shadow-2xl border border-slate-100 flex flex-col items-center text-center space-y-4">
+                            <div className="w-20 h-20 rounded-full bg-emerald-50 text-emerald-500 flex items-center justify-center">
+                                <Trophy size={40} className="animate-bounce" />
+                            </div>
+                            <div>
+                                <h3 className="text-2xl font-black text-slate-900 tracking-tight">Berhasil Ikut!</h3>
+                                <p className="text-slate-500 text-sm font-medium mt-1">Kamu sudah terdaftar di tantangan ini. Selesaikan dan dapatkan 5,000 PTS!</p>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };

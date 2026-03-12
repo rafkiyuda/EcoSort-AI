@@ -8,6 +8,11 @@ import Profile from './pages/Profile';
 import ActivityHistory from './pages/ActivityHistory';
 import ChallengeDetail from './pages/ChallengeDetail';
 import Badges from './pages/Badges';
+import Reports from './pages/Reports';
+import Promos from './pages/Promos';
+import Help from './pages/Help';
+import Settings from './pages/Settings';
+import Security from './pages/Security';
 import BottomNav from './components/BottomNav';
 
 function App() {
@@ -24,6 +29,11 @@ function App() {
           <Route path="/activity" element={<ActivityHistory />} />
           <Route path="/challenge/:id" element={<ChallengeDetail />} />
           <Route path="/badges" element={<Badges />} />
+          <Route path="/reports" element={<Reports />} />
+          <Route path="/promos" element={<Promos />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/security" element={<Security />} />
         </Routes>
         <BottomNav />
       </div>

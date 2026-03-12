@@ -5,7 +5,9 @@ import {
     Award,
     ChevronRight,
     Droplets,
-    MapPin
+    MapPin,
+    FileText,
+    Leaf
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -61,13 +63,16 @@ const Dashboard = () => {
                 <motion.div
                     onClick={() => navigate('/map')}
                     whileTap={{ scale: 0.98 }}
-                    className="bento-card bg-white cursor-pointer group"
+                    className="bento-card bg-white cursor-pointer group col-span-2 flex flex-row items-center gap-6"
                 >
-                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center mb-4 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-                        <MapPin className="w-6 h-6 text-emerald-500 group-hover:text-white" />
+                    <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition-colors shrink-0">
+                        <MapPin className="w-7 h-7 text-emerald-500 group-hover:text-white" />
                     </div>
-                    <h3 className="text-lg font-black text-slate-900 leading-tight">Cari RVM</h3>
-                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mt-1">Titik Terdekat</p>
+                    <div>
+                        <h3 className="text-xl font-black text-slate-900 leading-tight">Cari RVM Terdekat</h3>
+                        <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mt-1">Temukan lokasi di sekitar Anda</p>
+                    </div>
+                    <ChevronRight className="ml-auto text-slate-300" />
                 </motion.div>
 
                 <motion.div
@@ -79,7 +84,34 @@ const Dashboard = () => {
                         <Droplets className="w-6 h-6 text-blue-500 group-hover:text-white" />
                     </div>
                     <h3 className="text-lg font-black text-slate-900 leading-tight">5.2kg</h3>
-                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mt-1">Sampah Plastik</p>
+                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mt-1">Plastik</p>
+                </motion.div>
+
+                <motion.div
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => navigate('/activity')}
+                    className="bento-card bg-white cursor-pointer group"
+                >
+                    <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                        <FileText className="w-6 h-6 text-amber-500 group-hover:text-white" />
+                    </div>
+                    <h3 className="text-lg font-black text-slate-900 leading-tight">3.8kg</h3>
+                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mt-1">Kertas</p>
+                </motion.div>
+
+                <motion.div
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => navigate('/activity')}
+                    className="bento-card bg-white cursor-pointer group col-span-2 flex flex-row items-center gap-6"
+                >
+                    <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors shrink-0">
+                        <Leaf className="w-7 h-7 text-emerald-600 group-hover:text-white" />
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-black text-slate-900 leading-tight">1.5kg Food Waste</h3>
+                        <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mt-1">Terkomposisi minggu ini</p>
+                    </div>
+                    <ChevronRight className="ml-auto text-slate-300" />
                 </motion.div>
             </div>
 

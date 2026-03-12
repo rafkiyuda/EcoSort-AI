@@ -9,8 +9,11 @@ import {
     ShieldCheck
 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 export default function Wallet() {
+    const navigate = useNavigate();
+
     return (
         <div className="pb-32 pt-6 px-5 space-y-8 min-h-screen bg-slate-50">
             {/* Header */}
@@ -44,10 +47,16 @@ export default function Wallet() {
                     <p className="text-emerald-100/70 text-[11px] mt-1 font-bold tracking-widest">≈ Rp 124.500</p>
 
                     <div className="grid grid-cols-2 gap-3 mt-8">
-                        <button className="flex items-center justify-center gap-2 py-3 bg-white text-emerald-600 rounded-2xl font-bold text-sm shadow-md active:scale-95 transition-all">
+                        <button
+                            onClick={() => navigate('/shop')}
+                            className="flex items-center justify-center gap-2 py-3 bg-white text-emerald-600 rounded-2xl font-bold text-sm shadow-md active:scale-95 transition-all"
+                        >
                             <Gift className="w-4 h-4" /> Tukar Hadiah
                         </button>
-                        <button className="flex items-center justify-center gap-2 py-3 bg-white/15 backdrop-blur-md text-white border border-white/25 rounded-2xl font-bold text-sm active:scale-95 transition-all">
+                        <button
+                            onClick={() => navigate('/activity')}
+                            className="flex items-center justify-center gap-2 py-3 bg-white/15 backdrop-blur-md text-white border border-white/25 rounded-2xl font-bold text-sm active:scale-95 transition-all"
+                        >
                             <History className="w-4 h-4 text-white" /> Riwayat
                         </button>
                     </div>
@@ -57,12 +66,16 @@ export default function Wallet() {
             {/* Quick Access Menu */}
             <div className="grid grid-cols-4 gap-4 px-1">
                 {[
-                    { icon: CreditCard, label: 'Laporan', color: 'bg-blue-50 text-blue-600' },
-                    { icon: Gift, label: 'Promo', color: 'bg-red-50 text-red-600' },
-                    { icon: ShieldCheck, label: 'Lencana', color: 'bg-emerald-50 text-emerald-600' },
-                    { icon: History, label: 'Bantuan', color: 'bg-slate-50 text-slate-600' }
+                    { icon: CreditCard, label: 'Laporan', color: 'bg-blue-50 text-blue-600', path: '/reports' },
+                    { icon: Gift, label: 'Promo', color: 'bg-red-50 text-red-600', path: '/promos' },
+                    { icon: ShieldCheck, label: 'Lencana', color: 'bg-emerald-50 text-emerald-600', path: '/badges' },
+                    { icon: History, label: 'Bantuan', color: 'bg-slate-50 text-slate-600', path: '/help' }
                 ].map((item, idx) => (
-                    <button key={idx} className="flex flex-col items-center gap-2">
+                    <button
+                        key={idx}
+                        onClick={() => navigate(item.path)}
+                        className="flex flex-col items-center gap-2"
+                    >
                         <div className={`w-14 h-14 rounded-[22px] ${item.color} flex items-center justify-center shadow-sm active:scale-90 transition-all border border-transparent hover:border-slate-200`}>
                             <item.icon className="w-6 h-6" />
                         </div>

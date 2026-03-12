@@ -150,13 +150,13 @@ export default function Profile() {
             {/* Menu List */}
             <div className="space-y-3 px-1">
                 {[
-                    { label: 'Pengaturan Akun', icon: Settings, color: 'text-slate-400' },
-                    { label: 'Security & Privasi', icon: ShieldCheck, color: 'text-slate-400' },
-                    { label: 'Bantuan & FAQ', icon: Users, color: 'text-slate-400' },
+                    { label: 'Pengaturan Akun', icon: Settings, color: 'text-slate-400', path: '/settings' },
+                    { label: 'Security & Privasi', icon: ShieldCheck, color: 'text-slate-400', path: '/security' },
+                    { label: 'Bantuan & FAQ', icon: Users, color: 'text-slate-400', path: '/help' },
                 ].map((item) => (
                     <button
                         key={item.label}
-                        onClick={() => triggerToast(`${item.label} akan segera hadir!`)}
+                        onClick={() => navigate(item.path)}
                         className="w-full flex items-center justify-between p-5 bg-white rounded-[28px] border border-slate-100 active:bg-slate-50 transition-colors"
                     >
                         <div className="flex items-center gap-4">
