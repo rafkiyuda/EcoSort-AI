@@ -115,8 +115,8 @@ const ChallengeDetail = () => {
                 </div>
             </div>
 
-            {/* Floating Action Button */}
-            <div className="fixed bottom-6 left-6 right-6 z-50">
+            {/* Floating Action Button - MOVED ABOVE BOTTOM NAV */}
+            <div className="fixed bottom-32 left-6 right-6 z-50">
                 <button
                     onClick={handleJoin}
                     disabled={isJoined}

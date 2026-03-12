@@ -152,7 +152,7 @@ const Dashboard = () => {
                             }}
                             className="mt-6 bg-white py-3.5 text-slate-900 rounded-[20px] font-black text-xs w-max px-8 flex items-center gap-2 shadow-lg active:scale-95 transition-all outline-none"
                         >
-                            Ikuti Sekarang <ChevronRight className="w-4 h-4 text-emerald-600" />
+                            Lihat Detail <ChevronRight className="w-4 h-4 text-emerald-600" />
                         </button>
                     </div>
                 </motion.div>
