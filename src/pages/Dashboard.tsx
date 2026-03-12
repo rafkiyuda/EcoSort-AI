@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import challengeLamp from '../assets/challenge_lamp.png';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -133,7 +134,7 @@ const Dashboard = () => {
                     className="relative rounded-[40px] overflow-hidden group shadow-2xl shadow-emerald-900/10 cursor-pointer"
                 >
                     <img
-                        src="/src/assets/challenge_lamp.png"
+                        src={challengeLamp}
                         alt="Eco Challenge"
                         className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
                     />

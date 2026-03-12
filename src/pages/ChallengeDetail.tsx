@@ -10,6 +10,7 @@ import {
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import challengeLamp from '../assets/challenge_lamp.png';
 
 const ChallengeDetail = () => {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ const ChallengeDetail = () => {
             {/* Hero Image */}
             <div className="relative h-96 w-full">
                 <img
-                    src="/src/assets/challenge_lamp.png"
+                    src={challengeLamp}
                     alt="Eco Challenge"
                     className="w-full h-full object-cover"
                 />
@@ -120,8 +121,8 @@ const ChallengeDetail = () => {
                     onClick={handleJoin}
                     disabled={isJoined}
                     className={`w-full h-16 rounded-[24px] font-black shadow-2xl transition-all flex items-center justify-center gap-3 group active:scale-[0.98] ${isJoined
-                            ? 'bg-slate-900 text-white shadow-slate-900/20'
-                            : 'bg-emerald-600 text-white shadow-emerald-900/40 hover:bg-emerald-700'
+                        ? 'bg-slate-900 text-white shadow-slate-900/20'
+                        : 'bg-emerald-600 text-white shadow-emerald-900/40 hover:bg-emerald-700'
                         }`}
                 >
                     {isJoined ? (
