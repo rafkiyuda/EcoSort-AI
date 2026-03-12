@@ -1,12 +1,12 @@
-import { Home, MapPin, Scan, Wallet, ShoppingBag } from 'lucide-react';
+import { Home, User, Scan, Wallet, ShoppingBag } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const navItems = [
     { icon: Home, label: 'Home', path: '/' },
-    { icon: MapPin, label: 'Maps', path: '/map' },
-    { icon: Scan, label: 'Scan', path: '/scanner', isFab: true },
     { icon: Wallet, label: 'Wallet', path: '/wallet' },
+    { icon: Scan, label: 'Scan', path: '/scanner', isFab: true },
     { icon: ShoppingBag, label: 'Shop', path: '/shop' },
+    { icon: User, label: 'Profile', path: '/profile' },
 ];
 
 export default function BottomNav() {

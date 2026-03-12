@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ShoppingCart, Plus, Star, Heart, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -34,8 +34,8 @@ const Shop = () => {
                         key={cat}
                         onClick={() => setActiveCategory(cat)}
                         className={`px-6 py-2.5 rounded-full text-xs font-bold whitespace-nowrap transition-all tracking-wide ${activeCategory === cat
-                                ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-200'
-                                : 'bg-white text-slate-500 border border-slate-100 hover:bg-slate-50'
+                            ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-200'
+                            : 'bg-white text-slate-500 border border-slate-100 hover:bg-slate-50'
                             }`}
                     >
                         {cat}

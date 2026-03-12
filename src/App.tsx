@@ -5,6 +5,9 @@ import Shop from './pages/Shop';
 import Scanner from './pages/Scanner';
 import RVMMap from './pages/RVMMap';
 import Profile from './pages/Profile';
+import ActivityHistory from './pages/ActivityHistory';
+import ChallengeDetail from './pages/ChallengeDetail';
+import Badges from './pages/Badges';
 import BottomNav from './components/BottomNav';
 
 function App() {
@@ -18,6 +21,9 @@ function App() {
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/activity" element={<ActivityHistory />} />
+          <Route path="/challenge/:id" element={<ChallengeDetail />} />
+          <Route path="/badges" element={<Badges />} />
         </Routes>
         <BottomNav />
       </div>

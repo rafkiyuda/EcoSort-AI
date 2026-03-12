@@ -1,13 +1,11 @@
 import {
-    Trash2,
-    Flame,
     User,
     ArrowRight,
     TrendingUp,
     Award,
     ChevronRight,
-    Zap,
-    Droplets
+    Droplets,
+    MapPin
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
@@ -21,11 +19,11 @@ const Dashboard = () => {
             <div className="flex justify-between items-center">
                 <div>
                     <p className="text-slate-500 text-sm font-medium">Selamat siang,</p>
-                    <h1 className="text-2xl font-bold text-slate-900">Eco Sort</h1>
+                    <h1 className="text-2xl font-black text-slate-900 tracking-tight">Eco Sort</h1>
                 </div>
                 <button
                     onClick={() => navigate('/profile')}
-                    className="w-12 h-12 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center relative overflow-hidden"
+                    className="w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center relative overflow-hidden active:scale-95 transition-all"
                 >
                     <User className="w-6 h-6 text-slate-600" />
                 </button>
@@ -41,7 +39,7 @@ const Dashboard = () => {
                     <div className="flex justify-between items-start mb-6">
                         <div>
                             <p className="text-emerald-100 text-xs font-bold opacity-80 uppercase tracking-widest">Total Eco-Points</p>
-                            <h2 className="text-4xl font-bold mt-1 text-white">12,450 <span className="text-xl font-normal opacity-80">PTS</span></h2>
+                            <h2 className="text-4xl font-black mt-1 text-white tracking-tighter">12,450 <span className="text-xl font-medium opacity-80 antialiased">PTS</span></h2>
                         </div>
                         <div className="glass-pill flex items-center gap-1 text-[10px] text-white">
                             <TrendingUp className="w-3 h-3" />
@@ -49,7 +47,10 @@ const Dashboard = () => {
                         </div>
                     </div>
 
-                    <button className="w-full py-3 bg-white text-emerald-600 rounded-2xl font-bold text-sm shadow-lg hover:bg-emerald-50 transition-colors flex items-center justify-center gap-2">
+                    <button
+                        onClick={() => navigate('/wallet')}
+                        className="w-full py-4 bg-white text-emerald-600 rounded-2xl font-black text-sm shadow-xl shadow-emerald-900/10 hover:bg-emerald-50 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                    >
                         Tukar Poin <ArrowRight className="w-4 h-4" />
                     </button>
                 </div>
@@ -58,53 +59,67 @@ const Dashboard = () => {
             {/* Quick Stats Grid */}
             <div className="grid grid-cols-2 gap-4">
                 <motion.div
+                    onClick={() => navigate('/map')}
                     whileTap={{ scale: 0.98 }}
-                    className="bento-card bg-white"
+                    className="bento-card bg-white cursor-pointer group"
                 >
-                    <div className="w-10 h-10 rounded-2xl bg-blue-50 flex items-center justify-center mb-4">
-                        <Droplets className="w-5 h-5 text-blue-500" />
+                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center mb-4 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                        <MapPin className="w-6 h-6 text-emerald-500 group-hover:text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900">5.2kg</h3>
-                    <p className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">Sampah Plastik</p>
+                    <h3 className="text-lg font-black text-slate-900 leading-tight">Cari RVM</h3>
+                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mt-1">Titik Terdekat</p>
                 </motion.div>
 
                 <motion.div
                     whileTap={{ scale: 0.98 }}
-                    className="bento-card bg-white"
+                    onClick={() => navigate('/activity')}
+                    className="bento-card bg-white cursor-pointer group"
                 >
-                    <div className="w-10 h-10 rounded-2xl bg-amber-50 flex items-center justify-center mb-4">
-                        <Zap className="w-5 h-5 text-amber-500" />
+                    <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                        <Droplets className="w-6 h-6 text-blue-500 group-hover:text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900">12kg</h3>
-                    <p className="text-slate-500 text-[10px] font-bold uppercase tracking-wider">Sisa Makanan</p>
+                    <h3 className="text-lg font-black text-slate-900 leading-tight">5.2kg</h3>
+                    <p className="text-slate-400 text-[10px] font-bold uppercase tracking-wider mt-1">Sampah Plastik</p>
                 </motion.div>
             </div>
 
             {/* ECO Challenge */}
             <div className="space-y-4">
                 <div className="flex justify-between items-center px-1">
-                    <h2 className="text-lg font-bold text-slate-900 font-sans tracking-tight">Tantangan Hijau</h2>
-                    <button className="text-emerald-600 text-sm font-semibold">Semua</button>
+                    <h2 className="text-xl font-black text-slate-900 tracking-tight">Tantangan Hijau</h2>
+                    <button
+                        onClick={() => navigate('/challenge/1')}
+                        className="text-emerald-600 text-xs font-black uppercase tracking-widest"
+                    >
+                        Lihat Semua
+                    </button>
                 </div>
 
                 <motion.div
+                    onClick={() => navigate('/challenge/1')}
                     whileTap={{ scale: 0.98 }}
-                    className="relative rounded-[32px] overflow-hidden group shadow-xl shadow-emerald-900/10"
+                    className="relative rounded-[40px] overflow-hidden group shadow-2xl shadow-emerald-900/10 cursor-pointer"
                 >
                     <img
                         src="/src/assets/challenge_lamp.png"
                         alt="Eco Challenge"
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent flex flex-col justify-end p-6">
-                        <div className="flex items-center gap-2 mb-2">
-                            <span className="bg-emerald-500 text-[9px] font-black py-1 px-3 rounded-full text-white uppercase tracking-tighter">Eco Challenge</span>
-                            <span className="text-emerald-100 text-[9px] font-bold">3 HARI LAGI</span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex flex-col justify-end p-8">
+                        <div className="flex items-center gap-2 mb-3">
+                            <span className="bg-emerald-500 text-[10px] font-black py-1.5 px-3.5 rounded-full text-white uppercase tracking-tighter">Eco Challenge</span>
+                            <span className="text-emerald-100 text-[10px] font-black uppercase tracking-widest">3 HARI LAGI</span>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-1">Mulai Perjalanan Hijau Anda</h3>
-                        <p className="text-white/80 text-xs font-medium">Buat Lampu dari Botol Plastik & Menangkan Hadiah!</p>
-                        <button className="mt-4 bg-white py-2.5 text-slate-900 rounded-xl font-bold text-xs w-max px-6 flex items-center gap-2">
-                            Ikuti Tantangan <ChevronRight className="w-4 h-4 text-emerald-600" />
+                        <h3 className="text-2xl font-black text-white mb-2 tracking-tight">Lampu Botol Estetik</h3>
+                        <p className="text-white/80 text-sm font-medium leading-snug">Buat kerajinan lampu dari botol dan menangkan 5,000 PTS!</p>
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                navigate('/challenge/1');
+                            }}
+                            className="mt-6 bg-white py-3.5 text-slate-900 rounded-[20px] font-black text-xs w-max px-8 flex items-center gap-2 shadow-lg active:scale-95 transition-all outline-none"
+                        >
+                            Ikuti Sekarang <ChevronRight className="w-4 h-4 text-emerald-600" />
                         </button>
                     </div>
                 </motion.div>
@@ -113,8 +128,11 @@ const Dashboard = () => {
             {/* Recent Activity */}
             <div className="space-y-4">
                 <div className="flex justify-between items-center px-1">
-                    <h2 className="text-lg font-bold text-slate-900 tracking-tight">Aktivitas Terbaru</h2>
-                    <button className="text-emerald-600 text-xs font-bold uppercase tracking-widest flex items-center gap-1">
+                    <h2 className="text-xl font-black text-slate-900 tracking-tight">Aktivitas Terbaru</h2>
+                    <button
+                        onClick={() => navigate('/activity')}
+                        className="text-emerald-600 text-xs font-black uppercase tracking-widest flex items-center gap-1 active:translate-x-1 transition-transform"
+                    >
                         Riwayat <ChevronRight className="w-3 h-3 text-emerald-600" />
                     </button>
                 </div>
@@ -124,17 +142,21 @@ const Dashboard = () => {
                         { label: 'Setor Plastik RVM-01', date: 'Hari ini, 10:24 AM', points: '+250', type: 'in' },
                         { label: 'Tukar Voucher GrabFood', date: 'Kemarin, 06:12 PM', points: '-2000', type: 'out' }
                     ].map((item, idx) => (
-                        <div key={idx} className="flex items-center justify-between p-4 bg-white rounded-[24px] border border-slate-100 shadow-sm active:bg-slate-50 transition-colors">
+                        <div
+                            key={idx}
+                            onClick={() => navigate('/activity')}
+                            className="flex items-center justify-between p-5 bg-white rounded-[32px] border border-slate-100 shadow-sm active:bg-slate-50 active:scale-[0.98] transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-4">
-                                <div className={`w-11 h-11 rounded-2xl ${item.type === 'in' ? 'bg-emerald-50 text-emerald-600' : 'bg-red-50 text-red-600'} flex items-center justify-center`}>
-                                    {item.type === 'in' ? <TrendingUp className="w-5 h-5" /> : <Award className="w-5 h-5" />}
+                                <div className={`w-12 h-12 rounded-2xl ${item.type === 'in' ? 'bg-emerald-50 text-emerald-600' : 'bg-red-50 text-red-600'} flex items-center justify-center`}>
+                                    {item.type === 'in' ? <TrendingUp className="w-6 h-6" /> : <Award className="w-6 h-6" />}
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-slate-800 text-sm tracking-tight">{item.label}</h4>
-                                    <p className="text-[11px] text-slate-400 font-medium">{item.date}</p>
+                                    <h4 className="font-black text-slate-800 text-sm tracking-tight">{item.label}</h4>
+                                    <p className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">{item.date}</p>
                                 </div>
                             </div>
-                            <span className={`font-bold text-sm ${item.type === 'in' ? 'text-emerald-600' : 'text-slate-900'}`}>
+                            <span className={`font-black text-sm ${item.type === 'in' ? 'text-emerald-600' : 'text-slate-900'}`}>
                                 {item.points}
                             </span>
                         </div>
