@@ -156,6 +156,31 @@ const Dashboard = () => {
                         </button>
                     </div>
                 </motion.div>
+
+                {/* Second Challenge - Paper/Cardboard */}
+                <motion.div
+                    onClick={() => navigate('/challenge/1')}
+                    whileTap={{ scale: 0.98 }}
+                    className="relative rounded-[40px] overflow-hidden group shadow-2xl shadow-emerald-900/10 cursor-pointer bg-slate-900"
+                >
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-500/20 opacity-60" />
+                    <div className="relative p-8 flex flex-col justify-end min-h-[220px]">
+                        <div className="flex items-center gap-2 mb-3">
+                            <span className="bg-amber-500 text-[10px] font-black py-1.5 px-3.5 rounded-full text-white uppercase tracking-tighter shadow-lg shadow-amber-900/20">Paper Power</span>
+                        </div>
+                        <h3 className="text-2xl font-black text-white mb-2 tracking-tight">Kardus Jadi Rak</h3>
+                        <p className="text-white/80 text-sm font-medium leading-snug">Ubah kardus bekas menjadi rak buku mini yang kokoh.</p>
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                navigate('/challenge/1');
+                            }}
+                            className="mt-6 bg-white py-3.5 text-slate-900 rounded-[20px] font-black text-xs w-max px-8 flex items-center gap-2 shadow-lg active:scale-95 transition-all outline-none"
+                        >
+                            Lihat Detail <ChevronRight className="w-4 h-4 text-amber-600" />
+                        </button>
+                    </div>
+                </motion.div>
             </div>
 
             {/* Recent Activity */}
