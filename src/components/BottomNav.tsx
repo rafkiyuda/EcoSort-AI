@@ -36,16 +36,19 @@ export default function BottomNav() {
                         key={item.path}
                         to={item.path}
                         className={({ isActive }) =>
-                            `flex flex-col items-center gap-1.5 transition-all duration-300 ${isActive ? 'text-emerald-600' : 'text-slate-400 hover:text-slate-600'
-                            }`
+                            `flex flex-col items-center gap-1.5 transition-all duration-300 ${isActive ? 'text-emerald-600' : 'text-slate-400 hover:text-slate-600'}`
                         }
                     >
-                        <div className={`transition-all duration-300 ${item.path === '/' && 'relative'}`}>
-                            <Icon size={24} className={`${isActive && 'scale-110'}`} />
-                        </div>
-                        <span className={`text-[9px] font-black uppercase tracking-widest transition-all ${isActive ? 'opacity-100 translate-y-0' : 'opacity-80'}`}>
-                            {item.label}
-                        </span>
+                        {({ isActive }) => (
+                            <>
+                                <div className={`transition-all duration-300 ${item.path === '/' ? 'relative' : ''}`}>
+                                    <Icon size={24} className={`${isActive ? 'scale-110' : ''}`} />
+                                </div>
+                                <span className={`text-[9px] font-black uppercase tracking-widest transition-all ${isActive ? 'opacity-100 translate-y-0' : 'opacity-80'}`}>
+                                    {item.label}
+                                </span>
+                            </>
+                        )}
                     </NavLink>
                 );
             })}
