@@ -14,6 +14,10 @@
   --color-text-primary: #0F172A;
   --color-text-secondary: #475569;
   --color-text-muted: #94A3B8;
+
+  --shadow-bento: 0 8px 30px rgba(0, 0, 0, 0.04);
+  --shadow-bento-hover: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-bento-green: 0 20px 40px rgba(46, 204, 113, 0.2);
 }
 
 :root {
@@ -64,9 +68,20 @@ body {
 
 /* Custom Utilities for Bento Cards in Light Mode */
 .bento-card {
-  @apply bg-white border border-slate-100 rounded-[32px] p-6 shadow-[0_8px_30px_rgba(0, 0, 0, 0.04)] hover:shadow-[0_8px_30px_rgba(0, 0, 0, 0.08)] transition-all duration-300;
+  @apply bg-white border border-slate-100 rounded-[32px] p-6 shadow-bento hover:shadow-bento-hover transition-all duration-300;
 }
 
 .bento-card-green {
-  @apply bg-emerald-500 rounded-[32px] p-6 shadow-[0_20px_40px_rgba(46, 204, 113, 0.2)] text-white relative overflow-hidden;
+  @apply bg-emerald-500 rounded-[32px] p-6 shadow-bento-green text-white relative overflow-hidden;
+}
+
+.bg-silhouette {
+  background-image: url('/src/assets/eco_silhouette_pattern.png');
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+}
+
+.glass-pill {
+  @apply bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider;
 }
