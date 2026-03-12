@@ -14,10 +14,12 @@ import Help from './pages/Help';
 import Settings from './pages/Settings';
 import Security from './pages/Security';
 import BottomNav from './components/BottomNav';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen pb-20 overflow-y-auto">
         <Routes>
           <Route path="/" element={<Dashboard />} />
