@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/map" element={<RVMMap />} />
-          <Route path="/scan" element={<Scanner />} />
+          <Route path="/scanner" element={<Scanner />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/profile" element={<Profile />} />
